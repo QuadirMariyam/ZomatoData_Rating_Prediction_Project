@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZomatoData Rating Prediction</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Zomato Restaurant Data Rating Prediction</h1>
+        <form action="/predict" method="POST">
+            <p>Please enter Currency of your restaurant</p>
+            <select name="Currency">
+                <option value="0">Botswana Pula(P)</option>
+                <option value="1">Brazilian Real(R$)</option>
+                <option value="2">Dollar($)</option>
+                <option value="3">No Table Booking</option>
+                <option value="4">No Table Booking</option>
+                <option value="5">No Table Booking</option>
+                <option value="6">No Table Booking</option>
+                <option value="7">No Table Booking</option>
+                <option value="8">No Table Booking</option>
+                <option value="9">No Table Booking</option>
+                <option value="10">No Table Booking</option>
+                <option value="11">No Table Booking</option>
+                <option value="12">No Table Booking</option>
+            </select><br><br>
+            <p>Please enter Table Booking of your restaurant</p>
+            <select name="table_booking">
+                <option value="1">Table Booking Available</option>
+                <option value="0">No Table Booking</option>
+            </select><br><br>
+            <select name="online_order">
+                <option value="1">Online Order Available</option>
+                <option value="0">No Online Order</option>
+            </select><br><br>
+            <select name="delivering_now">
+                <option value="1">Delivering Now</option>
+                <option value="0">Not avialable for delivering</option>
+            </select><br><br>
+            <select name="price_range">
+                <option value="0">Cheap</option>
+                <option value="1">Affordable</option>
+                <option value="2">Average</option>
+                <option value="3">Expensive</option>
+            </select><br><br>
+            <input type="text" name="Votes" placeholder="Votes" required><br><br>
+            <input type="text" name="cost_for_two" placeholder="Average Cost for Two" required><br><br>
+            <button type="submit">Predict Rating</button>
+        </form>
+        {% if prediction_text %}
+            <h2>Predicted Rating: {{ prediction_text }}</h2>
+        {% endif %}
+</body>
+</html>
